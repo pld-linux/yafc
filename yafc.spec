@@ -30,14 +30,14 @@ autoconf
 %configure --with-socks5
 %{__make} CFLAGS="%{rpmcflags}"
 
+gzip -9nf README
+
 %install
 rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_sysconfdir}
 install yafcrc.sample $RPM_BUILD_ROOT%{_sysconfdir}/yafcrc
-
-gzip -9nf README
 
 %clean
 rm -rf $RPM_BUILD_ROOT

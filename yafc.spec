@@ -43,7 +43,7 @@ rm -f missing
 %{__autoconf}
 %{__autoheader}
 %{__automake}
-%configure 
+%configure
 #	--with-socks5
 %{__make}
 

@@ -5,8 +5,6 @@ Summary:	Yafc is yet another ftp client
 Summary(pl):	Yafc to Jeszcze Jeden Klient Ftp
 License:	GPL
 Group:		Applications/Networking
-Group(de):	Applikationen/Netzwerkwesen
-Group(pl):	Aplikacje/Sieciowe
 Source0:	ftp://mayer.physto.se/pub/yafc/%{name}-%{version}.tar.gz
 URL:		http://www.stacken.kth.se/~mhe/yafc
 BuildRequires:	readline-devel

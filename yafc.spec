@@ -1,14 +1,15 @@
 Name:		yafc
-Version:	0.6.6
+Version:	0.7.10
 Release:	1
 Summary:	Yafc is yet another ftp client
 Summary(pl):	Yafc to Jeszcze Jeden Klient Ftp
 License:	GPL
 Group:		Applications/Networking
-Source0:	ftp://mayer.physto.se/pub/yafc/%{name}-%{version}.tar.gz
-URL:		http://www.stacken.kth.se/~mhe/yafc
+Source0:	http://prdownloads.sourceforge.net/%{name}/%{name}-%{version}.tar.bz2
+URL:		http://yafc.sourceforge.net/
+Patch0:		%{name}-LIBOBJS.patch
 BuildRequires:	readline-devel
-BuildRequires:	socks5-devel
+#BuildRequires:	socks5-devel
 BuildRequires:	ncurses-devel
 BuildRequires:	autoconf
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -24,13 +25,17 @@ interfejs do protoko³u FTP. Zawiera wsparcie dla protoko³u SOCKS5.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
+rm -f missing
+%{__libtoolize}
+%{__aclocal}
 %{__autoconf}
-%configure --with-socks5
+%{__automake}
+%configure 
+#--with-socks5
 %{__make} CFLAGS="%{rpmcflags}"
-
-gzip -9nf README
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -54,4 +59,4 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/*
 %{_infodir}/*
 %config(noreplace) %verify(not size mtime md5) %{_sysconfdir}/yafcrc
-%doc *.gz
+%doc README doc/

@@ -5,7 +5,7 @@ Version:	0.7.10
 Release:	2
 License:	GPL
 Group:		Applications/Networking
-Source0:	http://prdownloads.sourceforge.net/%{name}/%{name}-%{version}.tar.bz2
+Source0:	http://dl.sourceforge.net/%{name}/%{name}-%{version}.tar.bz2
 URL:		http://yafc.sourceforge.net/
 Patch0:		%{name}-LIBOBJS.patch
 Patch1:		%{name}-info.patch

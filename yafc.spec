@@ -28,7 +28,7 @@ interfejs do protoko³u FTP. Zawiera wsparcie dla protoko³u SOCKS5.
 
 %build
 %configure --with-socks5
-%{__make} CFLAGS="%{?debug:-O0 -g}%{!?debug:$RPM_OPT_FLAGS}"
+%{__make} CFLAGS="%{rpmcflags}"
 
 %install
 rm -rf $RPM_BUILD_ROOT

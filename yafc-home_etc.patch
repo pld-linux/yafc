@@ -1,0 +1,41 @@
+diff -Nru yafc-1.0.orig/src/gvars.c yafc-1.0/src/gvars.c
+--- yafc-1.0.orig/src/gvars.c	2002-12-02 13:38:48.000000000 +0100
++++ yafc-1.0/src/gvars.c	2003-11-09 14:30:35.000000000 +0100
+@@ -122,6 +122,7 @@
+ int gvHistoryMax = 128;
+ 
+ char *gvLocalHomeDir = 0;
++char *gvHomeEtcDir = 0;
+ char *gvLocalPrevDir = 0;
+ char *gvHistoryFile = 0;
+ 
+diff -Nru yafc-1.0.orig/src/gvars.h yafc-1.0/src/gvars.h
+--- yafc-1.0.orig/src/gvars.h	2002-12-02 13:38:48.000000000 +0100
++++ yafc-1.0/src/gvars.h	2003-11-09 14:31:33.000000000 +0100
+@@ -139,6 +139,7 @@
+ extern list *gvLocalTagList; /* list of char* */
+ 
+ extern char *gvLocalHomeDir;
++extern char *gvHomeEtcDir;
+ extern char *gvLocalPrevDir;
+ extern char *gvHistoryFile;
+ 
+diff -Nru yafc-1.0.orig/src/main.c yafc-1.0/src/main.c
+--- yafc-1.0.orig/src/main.c	2002-12-05 23:02:35.000000000 +0100
++++ yafc-1.0/src/main.c	2003-11-09 14:28:39.000000000 +0100
+@@ -133,10 +133,14 @@
+ 	if(!gvLocalHomeDir)
+ 		gvLocalHomeDir = xstrdup(getenv("HOME"));
+ 
++	if(!gvHomeEtcDir) {
++		if (getenv("HOME_ETC"))
++			gvHomeEtcDir = xstrdup(getenv("HOME_ETC"));
++	}
+ 	gvWorkingDirectory = path_absolute(
+ 		gvWorkingDirectory ? gvWorkingDirectory : "~/.yafc",
+ 		get_local_curdir(),
+-		gvLocalHomeDir);
++		gvHomeEtcDir ? gvHomeEtcDir : gvLocalHomeDir);
+ 
+ 	gvSSHProgram = xstrdup("/usr/bin/ssh");
+ 

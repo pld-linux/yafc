@@ -12,6 +12,7 @@ URL:		http://www.stacken.kth.se/~mhe/yafc
 BuildRequires:	readline-devel
 BuildRequires:	socks5-devel
 BuildRequires:	ncurses-devel
+BuildRequires:	autoconf
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description

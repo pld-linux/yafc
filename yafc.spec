@@ -13,6 +13,8 @@ Patch1:		%{name}-info.patch
 Patch2:		%{name}-tinfo.patch
 Patch3:		%{name}-home_etc.patch
 BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool
 BuildRequires:	ncurses-devel
 BuildRequires:	readline-devel
 #BuildRequires:	socks5-devel

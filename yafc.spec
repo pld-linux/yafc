@@ -1,13 +1,13 @@
 Summary:	Yafc is yet another ftp and sftp client
 Summary(pl):	Yafc to Jeszcze Jeden Klient Ftp oraz sftp
 Name:		yafc
-Version:	0.7.10
-Release:	2
+Version:	1.0
+Release:	1
 License:	GPL
 Group:		Applications/Networking
-Source0:	http://dl.sourceforge.net/%{name}/%{name}-%{version}.tar.bz2
+Source0:	http://dl.sourceforge.net/yafc/%{name}-%{version}.tar.bz2
 URL:		http://yafc.sourceforge.net/
-Patch0:		%{name}-LIBOBJS.patch
+Patch0:		%{name}-errno.patch
 Patch1:		%{name}-info.patch
 Patch2:		%{name}-tinfo.patch
 BuildRequires:	autoconf
@@ -36,8 +36,9 @@ interfejs do protoko³u FTP oraz SFTP.
 %build
 rm -f missing
 %{__libtoolize}
-%{__aclocal}
+%{__aclocal} -I cf
 %{__autoconf}
+%{__autoheader}
 %{__automake}
 %configure 
 #	--with-socks5
@@ -63,7 +64,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc README doc/
+%doc BUGS COPYRIGHT NEWS README THANKS TODO
 %config(noreplace) %verify(not size mtime md5) %{_sysconfdir}/yafcrc
 %attr(755,root,root) %{_bindir}/*
 %{_mandir}/man1/*

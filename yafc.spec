@@ -26,7 +26,7 @@ interfejs do protoko³u FTP. Zawiera wsparcie dla protoko³u SOCKS5.
 %setup -q
 
 %build
-autoconf
+%{__autoconf}
 %configure --with-socks5
 %{__make} CFLAGS="%{rpmcflags}"
 

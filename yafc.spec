@@ -8,10 +8,13 @@ Group:		Applications/Networking
 Source0:	http://prdownloads.sourceforge.net/%{name}/%{name}-%{version}.tar.bz2
 URL:		http://yafc.sourceforge.net/
 Patch0:		%{name}-LIBOBJS.patch
+Patch1:		%{name}-info.patch
+Patch2:		%{name}-tinfo.patch
 BuildRequires:	autoconf
 BuildRequires:	ncurses-devel
 BuildRequires:	readline-devel
 #BuildRequires:	socks5-devel
+BuildRequires:	texinfo
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -27,6 +30,8 @@ interfejs do protoko³u FTP oraz SFTP.
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
+%patch2 -p1
 
 %build
 rm -f missing
@@ -35,14 +40,16 @@ rm -f missing
 %{__autoconf}
 %{__automake}
 %configure 
-#--with-socks5
-%{__make} CFLAGS="%{rpmcflags}"
+#	--with-socks5
+%{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
+install -d $RPM_BUILD_ROOT%{_sysconfdir}
+
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{_sysconfdir}
+
 install yafcrc.sample $RPM_BUILD_ROOT%{_sysconfdir}/yafcrc
 
 %clean
@@ -56,8 +63,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
+%doc README doc/
+%config(noreplace) %verify(not size mtime md5) %{_sysconfdir}/yafcrc
 %attr(755,root,root) %{_bindir}/*
 %{_mandir}/man1/*
 %{_infodir}/*
-%config(noreplace) %verify(not size mtime md5) %{_sysconfdir}/yafcrc
-%doc README doc/

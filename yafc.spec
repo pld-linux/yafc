@@ -18,6 +18,8 @@ BuildRequires:	readline-devel
 BuildRequires:	texinfo
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
+%define		specflags_ia32	"-fomit-frame-pointer"
+
 %description
 Yafc is yet another ftp client, similar to ftp(1). It is an
 interactive interface to the FTP protocol and SFTP protocol.

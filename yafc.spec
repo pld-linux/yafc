@@ -57,7 +57,8 @@ rm -f missing
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_sysconfdir},%{_desktopdir}}
 
-%{makeinstall}
+%{make} install \
+	DESTDIR=$RPM_BUILD_ROOT
 
 install yafcrc.sample $RPM_BUILD_ROOT%{_sysconfdir}/yafcrc
 install %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}

@@ -1,7 +1,7 @@
 [Desktop Entry]
 Name=yafc
 Comment=Yet Another Ftp and sftp Client
-Comment[pl]=Jeszcze Jeden Klient Ftp oraz sftp
+Comment[pl]=Jeszcze jeden klient FTP oraz sftp
 Exec=yafc
 Terminal=true
 Categories=Network;FileTransfer;

@@ -34,8 +34,8 @@ interfejs do protoko³u FTP. Zawiera wsparcie dla protoko³u SOCKS5.
 rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
-%{__install} -d $RPM_BUILD_ROOT%{_sysconfdir}
-%{__install} yafcrc.sample $RPM_BUILD_ROOT%{_sysconfdir}/yafcrc
+install -d $RPM_BUILD_ROOT%{_sysconfdir}
+install yafcrc.sample $RPM_BUILD_ROOT%{_sysconfdir}/yafcrc
 
 gzip -9nf README
 

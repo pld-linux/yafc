@@ -1,5 +1,5 @@
-Summary:	Yafc is yet another ftp and sftp client
-Summary(pl):	Yafc to Jeszcze Jeden Klient Ftp oraz sftp
+Summary:	Yafc is yet another FTP and SFTP client
+Summary(pl):	Yafc to Jeszcze Jeden Klient FTP oraz SFTP
 Name:		yafc
 Version:	1.1
 Release:	1
@@ -26,12 +26,12 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %define		specflags_ia32	 -fomit-frame-pointer 
 
 %description
-Yafc is yet another ftp client, similar to ftp(1). It is an
+Yafc is yet another FTP client, similar to ftp(1). It is an
 interactive interface to the FTP protocol and SFTP protocol.
 #It has SOCKS5 protocol support.
 
 %description -l pl
-Yafc to Jeszcze Jeden Klient Ftp, podobny do ftp(1). Ma interaktywny
+Yafc to Jeszcze Jeden Klient FTP, podobny do ftp(1). Ma interaktywny
 interfejs do protoko³u FTP oraz SFTP.
 #Obs³uguje protokó³ SOCKS5.
 

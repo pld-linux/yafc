@@ -1,11 +1,11 @@
---- yafc-0.7.10/acinclude.m4~	Tue Oct 22 13:02:16 2002
-+++ yafc-0.7.10/acinclude.m4	Tue Oct 22 13:02:16 2002
-@@ -167,7 +167,7 @@
+--- yafc-1.0.orig/aclocal.m4	Thu Mar 20 21:48:39 2003
++++ yafc-1.0/aclocal.m4	Thu Mar 20 21:55:05 2003
+@@ -6874,7 +6874,7 @@
  
- AC_DEFUN(mhe_CHECK_READLINE,
+ AC_DEFUN(YAFC_CHECK_READLINE,
  [
--    AC_SEARCH_LIBS(tgetent, ncurses curses termcap, ,
-+    AC_SEARCH_LIBS(tgetent, tinfo ncurses curses termcap, [],
-      AC_WARN(can't find terminal library))
+-  AC_SEARCH_LIBS(tgetent, [ncurses curses termcap], [])
++  AC_SEARCH_LIBS(tgetent, [tinfo ncurses curses termcap], [])
  
- 	AC_MSG_CHECKING(for readline >= 2.0)
+   AC_MSG_CHECKING([for readline >= 2.0])
+ 

@@ -3,6 +3,7 @@ Name=yafc
 Comment=Yet Another Ftp and sftp Client
 Comment[pl]=Jeszcze jeden klient FTP oraz sftp
 Exec=yafc
+Icon=file
 Terminal=true
 Categories=Network;FileTransfer;
 Type=Application

@@ -6,6 +6,7 @@ Release:	1
 License:	GPL
 Group:		Applications/Networking
 Source0:	http://dl.sourceforge.net/yafc/%{name}-%{version}.tar.bz2
+# Source0-md5:	c9d23600a263ac29505ca0084581a8f7
 URL:		http://yafc.sourceforge.net/
 Patch0:		%{name}-errno.patch
 Patch1:		%{name}-info.patch

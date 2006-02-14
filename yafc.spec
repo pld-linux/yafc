@@ -2,7 +2,7 @@ Summary:	Yafc is yet another FTP and SFTP client
 Summary(pl):	Yafc to Jeszcze Jeden Klient FTP oraz SFTP
 Name:		yafc
 Version:	1.1.1
-Release:	1
+Release:	2
 License:	GPL
 Group:		Applications/Networking
 Source0:	http://dl.sourceforge.net/yafc/%{name}-%{version}.tar.bz2
@@ -13,6 +13,7 @@ Patch0:		%{name}-errno.patch
 Patch1:		%{name}-info.patch
 Patch2:		%{name}-tinfo.patch
 Patch3:		%{name}-home_etc.patch
+Patch4:		%{name}-gssapi.patch
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	heimdal-devel
@@ -42,6 +43,7 @@ interfejs do protoko³u FTP oraz SFTP.
 %patch1 -p1
 %patch2 -p1
 %patch3 -p1
+%patch4 -p1
 
 %build
 rm -f missing

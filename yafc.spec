@@ -80,6 +80,6 @@ rm -rf $RPM_BUILD_ROOT
 %doc BUGS COPYRIGHT NEWS README THANKS TODO
 %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/yafcrc
 %attr(755,root,root) %{_bindir}/*
-%{_desktopdir}/*
+%{_desktopdir}/*.desktop
 %{_mandir}/man1/*
 %{_infodir}/yafc.info*

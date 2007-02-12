@@ -1,5 +1,5 @@
 Summary:	Yafc is yet another FTP and SFTP client
-Summary(pl):	Yafc to Jeszcze Jeden Klient FTP oraz SFTP
+Summary(pl.UTF-8):   Yafc to Jeszcze Jeden Klient FTP oraz SFTP
 Name:		yafc
 Version:	1.1.1
 Release:	3
@@ -32,10 +32,10 @@ Yafc is yet another FTP client, similar to ftp(1). It is an
 interactive interface to the FTP protocol and SFTP protocol.
 #It has SOCKS5 protocol support.
 
-%description -l pl
+%description -l pl.UTF-8
 Yafc to Jeszcze Jeden Klient FTP, podobny do ftp(1). Ma interaktywny
-interfejs do protoko≥u FTP oraz SFTP.
-#Obs≥uguje protokÛ≥ SOCKS5.
+interfejs do protoko≈Çu FTP oraz SFTP.
+#Obs≈Çuguje protok√≥≈Ç SOCKS5.
 
 %prep
 %setup -q

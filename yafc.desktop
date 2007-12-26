@@ -7,5 +7,4 @@ Icon=file
 Terminal=true
 Categories=ConsoleOnly;Network;FileTransfer;
 Type=Application
-Encoding=UTF-8
 # vi: encoding=utf-8

@@ -1,23 +1,19 @@
+# TODO:
+#	- package bash completions
+#
 Summary:	Yafc is yet another FTP and SFTP client
 Summary(pl.UTF-8):	Yafc to Jeszcze Jeden Klient FTP oraz SFTP
 Name:		yafc
-Version:	1.1.1
-Release:	10
+Version:	1.3.7
+Release:	1
 License:	GPL
 Group:		Applications/Networking
-Source0:	http://dl.sourceforge.net/yafc/%{name}-%{version}.tar.bz2
-# Source0-md5:	832d074183a36ee15b47553ed5962fce
+Source0:	http://www.yafc-ftp.com/downloads/%{name}-%{version}.tar.xz
+# Source0-md5:	4b6e0d46ab7ab78956bbb106ae904820
 Source1:	%{name}.desktop
-URL:		http://yafc.sourceforge.net/
-Patch0:		%{name}-errno.patch
-Patch1:		%{name}-info.patch
-Patch2:		%{name}-tinfo.patch
-Patch3:		%{name}-home_etc.patch
-Patch4:		%{name}-gssapi.patch
-BuildRequires:	autoconf
-BuildRequires:	automake
+URL:		http://www.yafc-ftp.com/
 BuildRequires:	heimdal-devel
-BuildRequires:	libtool
+BuildRequires:	libbsd-devel
 BuildRequires:	ncurses-devel
 BuildRequires:	readline-devel
 #BuildRequires:	socks5-devel
@@ -39,19 +35,8 @@ interfejs do protokołu FTP oraz SFTP.
 
 %prep
 %setup -q
-%patch0 -p1
-%patch1 -p1
-%patch2 -p1
-%patch3 -p1
-%patch4 -p1
 
 %build
-rm -f missing
-%{__libtoolize}
-%{__aclocal} -I cf
-%{__autoconf}
-%{__autoheader}
-%{__automake}
 %configure
 #	--with-socks5
 %{__make}
@@ -63,7 +48,7 @@ install -d $RPM_BUILD_ROOT{%{_sysconfdir},%{_desktopdir}}
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-install yafcrc.sample $RPM_BUILD_ROOT%{_sysconfdir}/yafcrc
+install samples/yafcrc $RPM_BUILD_ROOT%{_sysconfdir}/yafcrc
 install %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}
 
 %clean
@@ -77,7 +62,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc BUGS COPYRIGHT NEWS README THANKS TODO
+%doc BUGS COPYRIGHT NEWS README.md THANKS TODO
 %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/yafcrc
 %attr(755,root,root) %{_bindir}/*
 %{_desktopdir}/*.desktop
